@@ -36,6 +36,13 @@ app.put("/items/:id", (req, res) => {
   item.status = req.body.status;
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
   res.json({ message: "Status diubah" });
+  
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
+});
+
 });
 
 app.listen(3000, () => {
